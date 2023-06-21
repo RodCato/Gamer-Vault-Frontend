@@ -11,7 +11,6 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 import mockGames from "./mockGames";
 
-import mockGames from "./mockGames";
 
 const App = () => {
   const [games, setGames] = useState(mockGames);
