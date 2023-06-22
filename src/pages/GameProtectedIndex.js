@@ -1,6 +1,6 @@
 import React from "react";
 
-function GameProtectedIndex () {
+const GameProtectedIndex = () => {
     return (
         <div>
             <h1>GameProtectedIndex</h1>

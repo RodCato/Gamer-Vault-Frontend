@@ -1,6 +1,6 @@
 import React from "react";
 
-function GameNew () {
+const GameNew = () => {
     return (
         <div>
             <h1>GameNew</h1>

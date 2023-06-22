@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 import mockGames from "./mockGames";
+import mockUsers from "./mockUsers";
+import Search from "./components/Search";
 
 
 const App = () => {
