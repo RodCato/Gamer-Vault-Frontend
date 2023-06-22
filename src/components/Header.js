@@ -3,7 +3,7 @@ import SignIn from "../pages/SignIn";
 
 const Header = () => {
   return (
-    <React.Fragment>
+    <>
       <nav id="nav">
         <a href="/">
           <button className="button-perspective" role="button">
@@ -26,7 +26,7 @@ const Header = () => {
           </button>
         </a>
       </nav>
-    </React.Fragment>
+    </>
   );
 };
 
