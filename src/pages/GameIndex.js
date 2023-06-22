@@ -1,6 +1,6 @@
 import React from "react";
 
-function GameIndex () {
+const GameIndex = () => {
     return (
         <div>
             <h1>GameIndex</h1>

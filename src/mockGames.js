@@ -7,6 +7,7 @@ const mockGames = [
     genre: "Adventure",
     platform: "Android",
     notes: "",
+    user_id: 1,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const mockGames = [
     genre: "Action",
     platform: "macOS",
     notes: "",
+    user_id: 2,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const mockGames = [
     genre: "Action",
     platform: "PC",
     notes: "",
+    user_id: 3
   },
 ];
 
