@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom";
 import GameShow from "../pages/GameShow";
-import mockGames from "../mockGames"
+import mockGames from "../mockGames";
 
 describe("<GameShow />", () => {
   it("renders without crashing", () => {

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardBody, CardTitle, Button, NavLink } from "reactstrap";
 
 const GameIndex = ({ games }) => {
-    console.log(games);
+  console.log(games);
   return (
     <main className="game-index-cards">
       {games?.map((game, index) => {
@@ -20,9 +20,7 @@ const GameIndex = ({ games }) => {
             <CardBody>
               <CardTitle tag="h5">{game.title}</CardTitle>
               <Button>
-                <NavLink href={`/gameshow/${game.id}`}>
-                  More Details
-                </NavLink>
+                <NavLink href={`/gameshow/${game.id}`}>More Details</NavLink>
               </Button>
             </CardBody>
           </Card>
@@ -30,6 +28,6 @@ const GameIndex = ({ games }) => {
       })}
     </main>
   );
-}
+};
 
 export default GameIndex;
