@@ -30,6 +30,6 @@ const GameIndex = ({ games }) => {
       })}
     </main>
   );
-};
+}
 
 export default GameIndex;

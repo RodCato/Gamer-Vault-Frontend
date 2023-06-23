@@ -33,4 +33,4 @@ const GameShow = ({ games }) => {
     );
 }
 
-export default GameShow;
+export default GameShow
