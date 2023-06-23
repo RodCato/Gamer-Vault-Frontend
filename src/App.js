@@ -33,7 +33,7 @@ const App = () => {
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
