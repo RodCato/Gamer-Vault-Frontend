@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardBody, CardTitle, Button, NavLink } from "reactstrap";
 
 const GameIndex = ({ games }) => {
-  console.log(games);
   return (
     <main className="game-index-cards">
       {games?.map((game, index) => {

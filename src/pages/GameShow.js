@@ -12,7 +12,6 @@ import {
 const GameShow = ({ games }) => {
   const { id } = useParams();
   let currentGame = games?.find((game) => game.id === +id);
-  console.log(currentGame);
   return (
     <main>
       {currentGame && (
