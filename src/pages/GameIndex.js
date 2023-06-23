@@ -9,7 +9,7 @@ const GameIndex = ({ games }) => {
         return (
           <Card
             style={{
-              width: "14rem",
+            width: "14rem",
             }}
             key={index}
           >
