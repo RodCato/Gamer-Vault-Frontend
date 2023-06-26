@@ -6,12 +6,11 @@ const Search = () => {
     <>
       <div className="form">
         <div className={"input"}>
-          <Label for="name">Enter a Game Title: </Label>
-          <Input />
+          <Label for="name"></Label>
+          <Input placeholder="Enter a game..."/>
         </div>
-        <div className="buttons">
+        <div className="">
           <Button>Search</Button>
-          <Button>Reset</Button>
         </div>
       </div>
     </>

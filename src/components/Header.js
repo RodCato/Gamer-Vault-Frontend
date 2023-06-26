@@ -1,29 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
       <nav id="nav">
-        <a href="/">
-          <button className="button-perspective" role="button">
+        <Link to="/">
+          <button className="pixel-btn" role="button">
             Home
           </button>
-        </a>
-        <a href="/GameIndex">
-          <button className="button-perspective" role="button">
+        </Link>
+        <Link to="/gameindex">
+          <button className="pixel-btn" role="button">
             Browse
           </button>
-        </a>
-        <a href="/SignUp">
-          <button className="button-perspective" role="button">
+        </Link>
+        <Link to="/signup">
+          <button className="pixel-btn" role="button">
             Sign Up
           </button>
-        </a>
-        <a href="/SignIn">
-          <button className="button-perspective" role="button">
+        </Link>
+        <Link to="/signin">
+          <button className="pixel-btn" role="button">
             Login
           </button>
-        </a>
+        </Link>
       </nav>
     </>
   );

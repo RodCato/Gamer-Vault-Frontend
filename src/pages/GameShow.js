@@ -16,17 +16,19 @@ const GameShow = ({ games }) => {
     <main>
       {currentGame && (
         <>
-          <Card>
-            <CardImg alt="" src={currentGame.image} top width="100%" />
-            <CardBody>
-              <CardTitle tag="h5">{currentGame.title}</CardTitle>
-              <CardSubtitle className="mb-2 text-muted" tag="h6">
+        <div className="show-container">
+          <Card className="show-card">
+            <CardImg className="show-img" alt="" src={currentGame.image} />
+            <CardBody className="show-body">
+              <CardTitle style={{fontWeight:"800", fontSize:"3rem", marginBlock: "2rem"}}>{currentGame.title}</CardTitle>
+              <CardSubtitle className="card-title" style={{fontWeight:"500", fontSize:"1.5rem", marginBlock: "2rem"}}>
                 Game Genre: {currentGame.genre} <br /> Game Platform:{" "}
                 {currentGame.platform}
               </CardSubtitle>
-              <CardText>Description</CardText>
+              <CardText className="card-title">{currentGame.notes}</CardText>
             </CardBody>
           </Card>
+          </div>
         </>
       )}
     </main>
