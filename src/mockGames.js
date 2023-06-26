@@ -20,6 +20,56 @@ const mockGames = [
     user_id: 2,
   },
   {
+    id: 2,
+    title: "Left 4 Dead 2",
+    image:
+      "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
+    genre: "Action",
+    platform: "macOS",
+    notes: "",
+    user_id: 2,
+  },
+  {
+    id: 2,
+    title: "Left 4 Dead 2",
+    image:
+      "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
+    genre: "Action",
+    platform: "macOS",
+    notes: "",
+    user_id: 2,
+  },
+  {
+    id: 3,
+    title: "The Elder Scrolls V: Skyrim",
+    image:
+      "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
+    genre: "Action",
+    platform: "PC",
+    notes: "",
+    user_id: 3
+  },
+  {
+    id: 3,
+    title: "The Elder Scrolls V: Skyrim",
+    image:
+      "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
+    genre: "Action",
+    platform: "PC",
+    notes: "",
+    user_id: 3
+  },
+  {
+    id: 3,
+    title: "The Elder Scrolls V: Skyrim",
+    image:
+      "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
+    genre: "Action",
+    platform: "PC",
+    notes: "",
+    user_id: 3
+  },
+  {
     id: 3,
     title: "The Elder Scrolls V: Skyrim",
     image:
