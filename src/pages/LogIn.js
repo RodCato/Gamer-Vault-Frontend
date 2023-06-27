@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const SignUp = ({ signup }) => {
+const LogIn = ({ login }) => {
   const formRef = useRef();
   const navigate = useNavigate();
 
@@ -13,23 +13,29 @@ const SignUp = ({ signup }) => {
     const userInfo = {
       user: { email: data.email, password: data.password },
     };
-    signup(userInfo);
+    console.log(userInfo);
+    login(userInfo);
     navigate("/");
     e.target.reset();
   };
+
   return (
     <>
-      <div className="sign-up-title">
-        <img src={require("../assets/Signup.gif")} alt="bubble" />
+      <div className="center">
+        <h1>
+          <span>Login</span>
+          <span>Login</span>
+          <span>Login</span>
+        </h1>
       </div>
-      <div className="sign-up">
+      <div className="login">
         <form inline="true" ref={formRef} onSubmit={handleSubmit}>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
             <Input
               type="email"
               name="email"
               id="exampleEmail"
-              placeholder="Enter your email"
+              placeholder="supermariobros@pipeville.com"
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -37,18 +43,10 @@ const SignUp = ({ signup }) => {
               type="password"
               name="password"
               id="examplePassword"
-              placeholder="Choose a password"
+              placeholder="PeachyDaisy123"
             />
           </FormGroup>
-          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Input
-              type="password"
-              name="confirmPassword"
-              id="exampleConfirmPassword"
-              placeholder="Confirm password"
-            />
-          </FormGroup>
-          <Button className="pixel-btn" type="submit">
+          <Button className="pixel-btn" type="submit" value="login">
             Submit
           </Button>
         </form>
@@ -57,4 +55,4 @@ const SignUp = ({ signup }) => {
   );
 };
 
-export default SignUp;
+export default LogIn;
