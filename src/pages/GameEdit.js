@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { Form, FormGroup, Label, Input, Button, } from "reactstrap";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
   const navigate = useNavigate();
@@ -130,6 +130,7 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
           >
             Update Game
           </Button>
+          <Link to="/gameindex">
           <Button
             onClick={handleDelete}
             type="button"
@@ -149,6 +150,7 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
           >
             Delete Game
           </Button>
+          </Link>
         </div>
       </Form>
     </>

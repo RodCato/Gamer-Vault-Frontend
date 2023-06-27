@@ -13,7 +13,6 @@ const LogIn = ({ login }) => {
     const userInfo = {
       user: { email: data.email, password: data.password },
     };
-    console.log(userInfo);
     login(userInfo);
     navigate("/");
     e.target.reset();

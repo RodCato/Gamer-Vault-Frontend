@@ -22,12 +22,7 @@ const GameNew = ({ createGame, currentUser }) => {
   };
 
   const handleSubmit = () => {
-    console.log("currentUser?.id:", currentUser?.id);
-    console.log("newGame.user_id:", newGame.user_id);
-
     const gameData = { ...newGame, user_id: currentUser?.id || "" };
-    console.log("gameData:", gameData);
-
     createGame(gameData);
     navigate("/gameindex");
   };
