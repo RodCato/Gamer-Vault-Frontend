@@ -11,7 +11,7 @@ const AboutUs = () => {
       title: "Product and Project Manager",
       image: require("../assets/moogle.png"),
       pokemon: require("../assets/bulbaprof.png"),
-      bio: "tall mountains. stuff things etc cake pizza yummy dog cat car bike ship plane",
+      bio: "Former mountain climber turned product and project juggler extraordinaire! Armed with a keyboard and a wicked sense of humor, this web development prodigy is here to make her online dreams a reality.",
       portfolio: " https://jricks86.github.io/portfolio/",
       li: "https://www.linkedin.com/in/jricks86/",
       ig: null,
@@ -31,7 +31,7 @@ const AboutUs = () => {
       title: "Design Lead",
       image: require("../assets/moogle.png"),
       pokemon: require("../assets/charprof.png"),
-      bio: "Vance, the design wizard, embraces the art of rollerskating, pretending to meditate, and all things anime. His creative prowess extends beyond pixels, delving into a world of whimsical hobbies that keep his spirit soaring.",
+      bio: "Aside from pixel wizardry, Vance is a pancake thief, level 99 roller skater and a master of pretending to meditate. His creative prowess extends beyond design, and into a world of whimsical hobbies.",
       portfolio: "https://lotus.haleakaladesign.com/lotus/",
       li: "https://www.linkedin.com/in/vancea/",
       ig: "https://www.instagram.com/vanceplants/",
@@ -52,11 +52,9 @@ const AboutUs = () => {
             />
 
             <CardBody className="about-body">
-              <CardTitle style={{ fontWeight: "600", fontSize: "1.7rem" }}>
-                {member.name}
-              </CardTitle>
+              <CardTitle className="about-name">{member.name}</CardTitle>
 
-              <CardTitle style={{ paddingBottom: "1rem" }}>
+              <CardTitle style={{ paddingBottom: "1rem", fontSize: "1.5rem" }}>
                 {member.title}
               </CardTitle>
               <CardTitle>
@@ -67,7 +65,7 @@ const AboutUs = () => {
               </CardTitle>
 
               <CardSubtitle className="about-bio">
-                <br /> {member.bio}
+                <br /> &ldquo;{member.bio}&ldquo;
               </CardSubtitle>
               <div className="sm-icons">
                 <a

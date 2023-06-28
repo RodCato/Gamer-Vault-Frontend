@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-const GameNew = ({ createGame }) => {
+const GameNew = ({ createGame, currentUser }) => {
   const navigate = useNavigate();
 
   const [newGame, setNewGame] = useState({
@@ -11,21 +11,19 @@ const GameNew = ({ createGame }) => {
     genre: "",
     platform: "",
     notes: "",
+    user_id: currentUser?.id || "",
   });
 
   const handleChange = (e) => {
-    setNewGame({ ...newGame, [e.target.name]: e.target.value });
+    setNewGame((prevGame) => ({
+      ...prevGame,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleClick = () => {
-    createGame(newGame);
-    setNewGame({
-      title: "",
-      image: "",
-      genre: "",
-      platform: "",
-      notes: "",
-    });
+  const handleSubmit = () => {
+    const gameData = { ...newGame, user_id: currentUser?.id || "" };
+    createGame(gameData);
     navigate("/gameindex");
   };
 
@@ -34,7 +32,7 @@ const GameNew = ({ createGame }) => {
       <div className="add-a-game-title">
         <img src={require("../assets/addagame.png")} alt="bubble" />
       </div>
-      <Form className="new-game-form">
+      <form className="new-game-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <FormGroup>
             <Input
@@ -91,9 +89,20 @@ const GameNew = ({ createGame }) => {
               style={{ height: "5rem", width: "18rem", fontSize: "18px" }}
             />
           </FormGroup>
+          <FormGroup>
+            <Label for="user_id" hidden>
+              User Id
+            </Label>
+            <Input
+              id="user_id"
+              name="user_id"
+              onChange={handleChange}
+              value={newGame.user_id || currentUser?.id}
+              type="hidden"
+            />
+          </FormGroup>
 
           <Button
-            onClick={handleClick}
             type="submit"
             className="pixel-btn"
             style={{
@@ -112,7 +121,7 @@ const GameNew = ({ createGame }) => {
             Add Game
           </Button>
         </div>
-      </Form>
+      </form>
     </>
   );
 };

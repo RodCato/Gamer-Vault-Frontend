@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { Form, FormGroup, Label, Input, Button, } from "reactstrap";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
-const GameEdit = ({ games, updateGame }) => {
+const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -11,15 +11,16 @@ const GameEdit = ({ games, updateGame }) => {
     image: "",
     genre: "",
     platform: "",
-    notes: ""
+    notes: "",
+    user_id: currentUser?.id || "",
   });
 
   useEffect(() => {
-    const game = games.find((game) => game.id === id);
-    if (game) {
+    const game = games.find((game) => game.id === parseInt(id));
+    if (game && game.user_id === currentUser?.id) {
       setGameData(game);
     }
-  }, [games, id]);
+  }, [games, id, currentUser]);
 
   const handleChange = (e) => {
     setGameData({ ...gameData, [e.target.name]: e.target.value });
@@ -30,15 +31,19 @@ const GameEdit = ({ games, updateGame }) => {
     navigate("/gameindex");
   };
 
+  const handleDelete = () => {
+    deleteGame(gameData.id);
+    navigate("/gameindex");
+  };
+
   return (
     <>
       <div className="edit-game-title">
         <h1>Edit Game</h1>
       </div>
-      <Form className="edit-game-form" style={{height:"100vh"}}>
+      <Form className="edit-game-form" style={{ height: "100vh" }}>
         <div className="form-group">
           <FormGroup>
-           
             <Input
               id="game-title"
               type="text"
@@ -50,7 +55,6 @@ const GameEdit = ({ games, updateGame }) => {
           </FormGroup>
 
           <FormGroup>
-            
             <Input
               id="game-image"
               type="text"
@@ -62,7 +66,6 @@ const GameEdit = ({ games, updateGame }) => {
           </FormGroup>
 
           <FormGroup>
-            
             <Input
               id="game-genre"
               type="text"
@@ -74,7 +77,6 @@ const GameEdit = ({ games, updateGame }) => {
           </FormGroup>
 
           <FormGroup>
-            
             <Input
               id="game-platform"
               type="text"
@@ -86,7 +88,6 @@ const GameEdit = ({ games, updateGame }) => {
           </FormGroup>
 
           <FormGroup>
-            
             <Input
               id="game-notes"
               type="textarea"
@@ -95,6 +96,18 @@ const GameEdit = ({ games, updateGame }) => {
               onChange={handleChange}
               value={gameData.notes}
               style={{ height: "5rem", width: "18rem", fontSize: "18px" }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="user_id" hidden>
+              User Id
+            </Label>
+            <Input
+              id="user_id"
+              name="user_id"
+              onChange={handleChange}
+              value={gameData.user_id || currentUser?.id}
+              type="hidden"
             />
           </FormGroup>
 
@@ -112,11 +125,32 @@ const GameEdit = ({ games, updateGame }) => {
               color: "black",
               display: "flex",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             Update Game
           </Button>
+          <Link to="/gameindex">
+          <Button
+            onClick={handleDelete}
+            type="button"
+            className="pixel-btn"
+            style={{
+              height: "50px",
+              width: "100px",
+              marginTop: "20px",
+              fontSize: ".8rem",
+              textAlign: "center",
+              textDecoration: "none",
+              color: "black",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            Delete Game
+          </Button>
+          </Link>
         </div>
       </Form>
     </>
