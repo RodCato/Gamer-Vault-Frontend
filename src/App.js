@@ -36,7 +36,7 @@ const App = () => {
       .then((payload) => {
         setGames(payload);
       })
-      
+      .catch((error) => console.log(error));
   };
 
   const createGame = (game) => {
@@ -51,7 +51,7 @@ const App = () => {
       .then((payload) => {
         setGames([...games, payload]); // Update the list of games
       })
-      
+      .catch((errors) => console.log("Game creation errors:", errors));
   };
 
   const updateGame = (updatedGame) => {
@@ -69,7 +69,7 @@ const App = () => {
         );
         setGames(updatedGames);
       })
-   
+      .catch((error) => console.log("Game update error:", error));
   };
 
   const deleteGame = (id) => {
@@ -106,7 +106,7 @@ const App = () => {
       .then((payload) => {
         setCurrentUser(payload);
       })
-     
+      .catch((error) => console.log("login errors:", error));
   };
 
   const logout = () => {
@@ -121,7 +121,7 @@ const App = () => {
         localStorage.removeItem("token"); // remove the token
         setCurrentUser(null);
       })
-      
+      .catch((error) => console.log("log out errors: ", error));
   };
 
   const signup = (userInfo) => {
@@ -144,7 +144,7 @@ const App = () => {
       .then((payload) => {
         setCurrentUser(payload);
       })
-      
+      .catch((error) => console.log("login errors: ", error));
   };
 
   return (
