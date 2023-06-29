@@ -465,6 +465,7 @@ body {
   display: flex;
   justify-content: center;
   height: 100vh;
+  margin-bottom: 14rem;
 }
 
 .show-card {
@@ -501,8 +502,8 @@ body {
 .edit-game-form {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 50vh;
+  align-items: flex-start;
+  height: 10vh;
 }
 
 .sm-icons {
@@ -514,8 +515,8 @@ body {
 .add-a-game-title {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  height: 23rem;
+  align-items: center;
+  height: 20rem;
 }
 
 .add-a-game-title img {
@@ -526,5 +527,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 30vh;
+  height: 10rem;
+}
+
+.show-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  font-size: 2rem;
+}
+
+.my-games-title {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0 0 0;
+}
+
+.my-games-title img {
+  height: 20rem;
 }

@@ -189,7 +189,6 @@ const App = () => {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </>
   );
 };
