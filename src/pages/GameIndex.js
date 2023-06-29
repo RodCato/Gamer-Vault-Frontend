@@ -38,7 +38,7 @@ const GameIndex = ({ games, deleteGame }) => {
 
     setSearchTerm(searchValue);
   };
-
+  console.log("Filtered Games:", filteredGames);
   return (
     <div>
       <div className="browse-search-bar">

@@ -11,13 +11,14 @@ import NotFound from "./pages/NotFound";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import AboutUs from "./pages/AboutUs";
+import GameProtectedIndex from "./pages/GameProtectedIndex";
 import "./App.css";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [games, setGames] = useState([]);
 
-  const url = "https://gamervault.onrender.com/";
+  const url = "http://localhost:3000";
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
@@ -158,7 +159,7 @@ const App = () => {
         />
         <Route
           path="/gameshow/:id"
-          element={<GameShow games={games} deleteGame={deleteGame} />}
+          element={<GameShow games={games} deleteGame={deleteGame} currentUser={currentUser} updateGame={updateGame }/>}
         />
         <Route
           path="/gamenew"
@@ -175,6 +176,12 @@ const App = () => {
               currentUser={currentUser}
               deleteGame={deleteGame}
             />
+          }
+        />
+        <Route
+          path="/mygames"
+          element={
+            <GameProtectedIndex currentUser={currentUser} games={games}/>
           }
         />
         <Route path="/signup" element={<SignUp signup={signup} />} />

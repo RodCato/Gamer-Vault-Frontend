@@ -21,7 +21,7 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
   cursor: default;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   right: 0;

@@ -12,16 +12,22 @@ const Header = ({ currentUser, logout }) => {
     if (currentUser) {
       return (
         <>
+        <Link to="/mygames">
+            <button className="pixel-btn" role="button" >
+              My Games
+            </button>
+          </Link>
+         <Link to="/gamenew">
+            <button className="pixel-btn" role="button">
+              Add Game
+            </button>
+          </Link>
           <Link to="/">
             <button className="pixel-btn" role="button" onClick={handleClick}>
               Log Off
             </button>
           </Link>
-          <Link to="/gamenew">
-            <button className="pixel-btn" role="button">
-              Add Game
-            </button>
-          </Link>
+         
         </>
       );
     } else {
