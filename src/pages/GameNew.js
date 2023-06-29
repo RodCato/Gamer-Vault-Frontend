@@ -90,9 +90,7 @@ const GameNew = ({ createGame, currentUser }) => {
             />
           </FormGroup>
           <FormGroup>
-            <Label for="user_id" hidden>
-              User Id
-            </Label>
+
             <Input
               id="user_id"
               name="user_id"

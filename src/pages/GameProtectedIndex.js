@@ -10,9 +10,11 @@ const GameProtectedIndex = ({ currentUser, games }) => {
 
   return (
     <>
-      <h1>My Games</h1>
+      <div className="my-games-title">
+        <img src={require("../assets/mygames.png")} alt="bubble" />
+      </div>
       {currentUser && (
-        <main className="card-columns">
+        <main className="card-columns" style={{marginTop:"0"}}>
           {userGames?.map((game, index) => (
             <div key={index}>
               <br />

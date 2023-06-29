@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import {
   Card,
   CardBody,
@@ -13,21 +13,29 @@ import GameEdit from "./GameEdit";
 
 const GameShow = ({ games, currentUser, deleteGame, updateGame }) => {
   const { id } = useParams();
-  const currentGame = games?.find((game) => game.id === +id);
+  const [currentGame, setCurrentGame] = useState(null);
   const [editMode, setEditMode] = useState(false);
+
+  useEffect(() => {
+    setCurrentGame(games?.find((game) => game.id === +id));
+  }, [games, id]);
 
   const handleDelete = () => {
     deleteGame(currentGame.id);
   };
 
+  const handleDeleteAndRedirect = () => {
+    handleDelete();
+    window.location.href = "/gameindex"; // Redirect to gameindex page after deleting
+  };
+
   const renderEditDeleteButtons = () => {
     if (currentUser && currentGame && currentUser.id === currentGame.user_id) {
-
       return (
-        <>
-          <Button onClick={() => setEditMode(true)}>Edit Game</Button>
-          <Button onClick={handleDelete}>Delete Game</Button>
-        </>
+        <div className="show-buttons">
+          <Button className="pixel-btn" onClick={() => setEditMode(true)}>Edit Game</Button>
+          <Button className="pixel-btn" onClick={handleDeleteAndRedirect}>Delete Game</Button>
+        </div>
       );
     }
     return null;
@@ -78,6 +86,5 @@ const GameShow = ({ games, currentUser, deleteGame, updateGame }) => {
     </main>
   );
 };
-
 
 export default GameShow;
