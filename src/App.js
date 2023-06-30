@@ -11,6 +11,10 @@ import NotFound from "./pages/NotFound";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import AboutUs from "./pages/AboutUs";
+import GameProtectedIndex from "./pages/GameProtectedIndex";
+import Vance from "./pages/Vance";
+import Jess from "./pages/Jess";
+import CRod from "./pages/CRod";
 import "./App.css";
 
 const App = () => {
@@ -158,7 +162,14 @@ const App = () => {
         />
         <Route
           path="/gameshow/:id"
-          element={<GameShow games={games} deleteGame={deleteGame} />}
+          element={
+            <GameShow
+              games={games}
+              deleteGame={deleteGame}
+              currentUser={currentUser}
+              updateGame={updateGame}
+            />
+          }
         />
         <Route
           path="/gamenew"
@@ -177,12 +188,20 @@ const App = () => {
             />
           }
         />
+        <Route
+          path="/mygames"
+          element={
+            <GameProtectedIndex currentUser={currentUser} games={games} />
+          }
+        />
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/login" element={<LogIn login={login} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/vance" element={<Vance />} />
+        <Route path="/jess" element={<Jess />} />
+        <Route path="/crod" element={<CRod />} />
       </Routes>
-      <Footer />
     </>
   );
 };

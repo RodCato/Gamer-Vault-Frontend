@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardBody, CardTitle, Button } from "reactstrap";
 import { NavLink, useLocation } from "react-router-dom";
-import Search from "../components/Search";
+import SearchComponent from "../components/SearchComponent";
 
 const GameIndex = ({ games, deleteGame }) => {
   const location = useLocation();
@@ -38,13 +38,12 @@ const GameIndex = ({ games, deleteGame }) => {
 
     setSearchTerm(searchValue);
   };
-
+  console.log("Filtered Games:", filteredGames);
   return (
     <div>
-      <div className="browse-search-bar">
-        <Search searchTerm={searchTerm} handleSearch={handleSearch} />
+      <div style={{marginTop:"4rem"}}>
+        <SearchComponent searchTerm={searchTerm} handleSearch={handleSearch} />
       </div>
-
       <main className="card-columns">
         {filteredGames.map((game, index) => {
           return (

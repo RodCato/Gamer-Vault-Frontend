@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormGroup, Label, Input, Button, } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
@@ -33,15 +33,32 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
 
   const handleDelete = () => {
     deleteGame(gameData.id);
-    navigate("/gameindex");
+    navigate("/mygames");
   };
 
   return (
     <>
-      <div className="edit-game-title">
-        <h1>Edit Game</h1>
+      <div className="my-games-title">
+        <img src={require("../assets/editgame.png")} alt="bubble" />
       </div>
-      <Form className="edit-game-form" style={{ height: "100vh" }}>
+      {gameData.image && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "20px",
+          }}
+        >
+          <img
+            src={gameData.image}
+            alt={gameData.image}
+            height="250px"
+            width="250px"
+          />
+        </div>
+      )}
+      <Form className="edit-game-form">
         <div className="form-group">
           <FormGroup>
             <Input
@@ -92,16 +109,13 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
               id="game-notes"
               type="textarea"
               name="notes"
-              placeholder="Notes"
+              placeholder="Notes (required)"
               onChange={handleChange}
               value={gameData.notes}
               style={{ height: "5rem", width: "18rem", fontSize: "18px" }}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="user_id" hidden>
-              User Id
-            </Label>
             <Input
               id="user_id"
               name="user_id"
@@ -111,46 +125,48 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
             />
           </FormGroup>
 
-          <Button
-            onClick={handleSubmit}
-            type="submit"
-            className="pixel-btn"
-            style={{
-              height: "50px",
-              width: "100px",
-              marginTop: "20px",
-              fontSize: ".8rem",
-              textAlign: "center",
-              textDecoration: "none",
-              color: "black",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            Update Game
-          </Button>
-          <Link to="/gameindex">
-          <Button
-            onClick={handleDelete}
-            type="button"
-            className="pixel-btn"
-            style={{
-              height: "50px",
-              width: "100px",
-              marginTop: "20px",
-              fontSize: ".8rem",
-              textAlign: "center",
-              textDecoration: "none",
-              color: "black",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            Delete Game
-          </Button>
-          </Link>
+          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+            <Button
+              onClick={handleSubmit}
+              type="submit"
+              className="pixel-btn"
+              style={{
+                height: "50px",
+                width: "100px",
+                marginTop: "20px",
+                fontSize: ".8rem",
+                textAlign: "center",
+                textDecoration: "none",
+                color: "black",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              Update Game
+            </Button>
+            <Link to="/gameindex">
+              <Button
+                onClick={handleDelete}
+                type="button"
+                className="pixel-btn"
+                style={{
+                  height: "50px",
+                  width: "100px",
+                  marginTop: "20px",
+                  fontSize: ".8rem",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  color: "black",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                Delete Game
+              </Button>
+            </Link>
+          </div>
         </div>
       </Form>
     </>
