@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const GameNew = ({ createGame, currentUser }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const [newGame, setNewGame] = useState({
     title: "",
     image: "",
@@ -14,6 +15,7 @@ const GameNew = ({ createGame, currentUser }) => {
     user_id: currentUser?.id || "",
   });
 
+  // Use of useEffect to prefill the form fields when location state is available
   useEffect(() => {
     if (location.state && location.state.prefill) {
       const { title, image, genre, platform } = location.state.prefill;
@@ -38,7 +40,7 @@ const GameNew = ({ createGame, currentUser }) => {
     e.preventDefault();
     const gameData = { ...newGame, user_id: currentUser?.id || "" };
     createGame(gameData);
-    navigate("/gameindex");
+    navigate("/mygames");
   };
 
   return (
@@ -46,6 +48,24 @@ const GameNew = ({ createGame, currentUser }) => {
       <div className="add-a-game-title">
         <img src={require("../assets/addagame.png")} alt="bubble" />
       </div>
+      {newGame.image && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "20px",
+          }}
+        >
+          <img
+            src={newGame.image}
+            alt={newGame.image}
+            height="250px"
+            width="250px"
+          />
+        </div>
+      )}
+
       <form className="new-game-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <FormGroup>
@@ -97,14 +117,13 @@ const GameNew = ({ createGame, currentUser }) => {
               id="game-notes"
               type="textarea"
               name="notes"
-              placeholder="Notes"
+              placeholder="Notes (required)"
               onChange={handleChange}
               value={newGame.notes}
               style={{ height: "5rem", width: "18rem", fontSize: "18px" }}
             />
           </FormGroup>
           <FormGroup>
-
             <Input
               id="user_id"
               name="user_id"

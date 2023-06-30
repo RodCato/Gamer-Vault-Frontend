@@ -1,43 +1,47 @@
-import React, { useState } from 'react';
-import { Card, CardBody, CardTitle, Button, Label, Input } from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Card, CardBody, CardTitle, Button, Label, Input } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
-const SearchComponent = ({ handleSearch }) => {
+const SearchComponent = () => {
   const navigate = useNavigate();
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const fetchSearchResults = async () => {
     try {
-      const apiKey = '5d37a51f335c471490ba1b0276d510f8'; // Replace with your actual API key
+      const apiKey = process.env.REACT_APP_API_KEY; 
       const response = await fetch(
         `https://api.rawg.io/api/games?key=${apiKey}&search=${searchQuery}`
       );
       const data = await response.json();
       const gamesArray = data.results;
-      setSearchResults(gamesArray);
+
+      const filteredGamesArray = gamesArray.filter((game) => {
+        return !gameAlreadyPresent(game);
+      });
+
+      setSearchResults(filteredGamesArray);
     } catch (error) {
-      console.error('Error fetching search results:', error);
+      console.error("Error fetching search results:", error);
     }
+  };
+
+  const gameAlreadyPresent = (game) => {
+    return game.name.toLowerCase().includes("example");
   };
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
-    handleSearch(event.target.value);
   };
-  
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      fetchSearchResults();
-    }
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    fetchSearchResults();
   };
 
   const handleSaveGame = (game) => {
-    // Replace with your save game logic
-    console.log('Saving game:', game);
-    navigate('/gamenew', {
+    navigate("/gamenew", {
       state: {
         prefill: {
           title: game.name,
@@ -51,20 +55,19 @@ const SearchComponent = ({ handleSearch }) => {
 
   return (
     <>
-      <div className="form">
+      <form className="form" onSubmit={handleSearch}>
         <div className="input">
           <Label for="name"></Label>
           <Input
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
-            onKeyDown={handleKeyDown} // Handle keydown event
             placeholder="Enter a game..."
             className="search-input"
           />
         </div>
-        <Button onClick={fetchSearchResults}>Search</Button>
-      </div>
+        <Button type="submit">Search</Button>
+      </form>
       <div className="search-results">
         {searchResults.map((game) => (
           <div key={game.id} className="search-result">
@@ -73,9 +76,12 @@ const SearchComponent = ({ handleSearch }) => {
                 <img src={game.background_image} alt={game.name} />
               </div>
               <CardBody className="card-body">
-                <CardTitle style={{ fontWeight: '600' }}>{game.name}</CardTitle>
+                <CardTitle style={{ fontWeight: "600" }}>{game.name}</CardTitle>
                 <div className="button-container">
-                  <Button className="pixel-btn" onClick={() => handleSaveGame(game)}>
+                  <Button
+                    className="pixel-btn"
+                    onClick={() => handleSaveGame(game)}
+                  >
                     Save
                   </Button>
                 </div>
