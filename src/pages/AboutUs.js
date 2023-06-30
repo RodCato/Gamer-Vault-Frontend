@@ -3,6 +3,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import lipixel from "../assets/lipixel.png";
 import igpixel from "../assets/igpixel.png";
 import folderpixel from "../assets/folderpixel.png";
+import twitterpixel from "../assets/twitterpixel.png"
 
 const AboutUs = () => {
   const teamMembers = [
@@ -15,6 +16,7 @@ const AboutUs = () => {
       portfolio: " https://jricks86.github.io/portfolio/",
       li: "https://www.linkedin.com/in/jricks86/",
       ig: null,
+      twitter: null,
     },
     {
       name: "Catalino Rodriguez",
@@ -25,6 +27,7 @@ const AboutUs = () => {
       portfolio: "https://crod.co/",
       li: "https://www.linkedin.com/in/catalinorodriguez/",
       ig: null,
+      twitter: "https://twitter.com/CRodDev",
     },
     {
       name: "Vance Apostol",
@@ -35,6 +38,7 @@ const AboutUs = () => {
       portfolio: "https://lotus.haleakaladesign.com/lotus/",
       li: "https://www.linkedin.com/in/vancea/",
       ig: "https://www.instagram.com/vanceplants/",
+      twitter: null,
     },
   ];
 
@@ -44,7 +48,7 @@ const AboutUs = () => {
         <div key={index}>
           <br />
           <br />
-          <Card style={{ width: "20rem" }} className="eachCard">
+          <Card style={{ width: "21rem", height: "45rem" }} className="eachCard">
             <img
               alt={`profile of the member ${member.name}`}
               src={member.image}
@@ -54,7 +58,7 @@ const AboutUs = () => {
             <CardBody className="about-body">
               <CardTitle className="about-name">{member.name}</CardTitle>
 
-              <CardTitle style={{ paddingBottom: "1rem", fontSize: "1.5rem" }}>
+              <CardTitle style={{ fontSize: "1.5rem" }}>
                 {member.title}
               </CardTitle>
               <CardTitle>
@@ -96,6 +100,20 @@ const AboutUs = () => {
                       style={{ height: "50px", width: "50px" }}
                     />
                   </a>
+ 
+                )}
+
+{member.twitter !== null && member.twitter !== undefined && (
+                  <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                    <img
+                      alt={`twitter to ${member.name}`}
+                      src={twitterpixel}
+                      style={{ height: "50px", width: "50px" }}
+                    />
+                  </a>
+
+                  
+                  
                 )}
               </div>
             </CardBody>

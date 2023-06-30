@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormGroup, Label, Input, Button } from "reactstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const GameNew = ({ createGame, currentUser }) => {
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [newGame, setNewGame] = useState({
     title: "",
     image: "",
@@ -14,6 +14,19 @@ const GameNew = ({ createGame, currentUser }) => {
     user_id: currentUser?.id || "",
   });
 
+  useEffect(() => {
+    if (location.state && location.state.prefill) {
+      const { title, image, genre, platform } = location.state.prefill;
+      setNewGame((prevGame) => ({
+        ...prevGame,
+        title: title || "",
+        image: image || "",
+        genre: genre || "",
+        platform: platform || "",
+      }));
+    }
+  }, [location.state]);
+
   const handleChange = (e) => {
     setNewGame((prevGame) => ({
       ...prevGame,
@@ -21,7 +34,8 @@ const GameNew = ({ createGame, currentUser }) => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const gameData = { ...newGame, user_id: currentUser?.id || "" };
     createGame(gameData);
     navigate("/gameindex");

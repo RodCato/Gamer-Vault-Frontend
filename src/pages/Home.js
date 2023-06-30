@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Search from "../components/Search";
+import SearchComponent from "../components/SearchComponent";
 
 const Home = () => {
   const navigate = useNavigate();
+
   const handleSearch = (searchTerm) => {
     navigate(`/gameindex?search=${encodeURIComponent(searchTerm)}`);
   };
+
 
   return (
     <>
@@ -26,9 +28,7 @@ const Home = () => {
           <h1>GAMER VAULT</h1>
         </div>
       </div>
-      <div className="search">
-        <Search handleSearch={handleSearch} />
-      </div>
+        <SearchComponent handleSearch={handleSearch} />
     </>
   );
 };

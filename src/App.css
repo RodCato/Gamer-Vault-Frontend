@@ -88,6 +88,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 0 5rem 0;
 }
 
 .form button {
@@ -127,6 +128,8 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-weight: 900;
+  filter: drop-shadow(18px 18px 10px #0f0f0f);
+
 }
 
 @keyframes animate {
@@ -149,7 +152,6 @@ body {
   display: grid;
   place-items: center;
   text-align: center;
-  margin-top: 5rem;
 }
 
 .ness {
@@ -161,6 +163,7 @@ body {
 .ness img {
   height: 50%;
   width: 50%;
+  filter: drop-shadow(18px 18px 10px #0f0f0f);
 }
 
 .bubble {
@@ -172,6 +175,8 @@ body {
 .bubble img {
   height: 60%;
   width: 60%;
+  filter: drop-shadow(18px 18px 10px #0f0f0f);
+
 }
 
 .title {
@@ -187,12 +192,13 @@ body {
 .sign-up-title {
   display: flex;
   justify-content: center;
-  padding: 15rem 0 2.5rem 0;
+  padding: 5rem 0 2.5rem 0;
 }
 
 .sign-up-title img {
   height: 25vh;
   width: 25vw;
+  filter: drop-shadow(18px 18px 10px #0f0f0f);
 }
 
 .sign-up {
@@ -357,14 +363,13 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 3rem;
 }
 
 .card-title {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1rem;
+  height: 2rem;
   text-align: center;
   padding-top: 1.5rem;
 }
@@ -411,7 +416,8 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 7rem;
+  height: 100vh;
+  /* margin-top: 7rem; */
 }
 
 .about-name {
@@ -509,7 +515,6 @@ body {
 .sm-icons {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 1.5rem;
 }
 
 .add-a-game-title {
@@ -526,7 +531,7 @@ body {
 .browse-search-bar {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 10rem;
 }
 
@@ -546,4 +551,16 @@ body {
 
 .my-games-title img {
   height: 20rem;
+}
+
+.search-results{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.search-result {
+  margin-bottom: 2rem;
 }
