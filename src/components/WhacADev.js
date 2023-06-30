@@ -72,7 +72,7 @@ const WhacADev = ({ score, setScore }) => {
     }
     const selectedTileId = event.currentTarget.id; // Use currentTarget instead of target
     if (selectedTileId === currDevTile) {
-      setScore((prevScore) => prevScore + 10);
+      setScore((prevScore) => prevScore + 1);
     } else if (selectedTileId === currBombTile) {
       setScore(score.toString());
       setGameOver(true);
