@@ -1,23 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ currentUser, logout }) => {
-  const current_user = true;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+
   const handleClick = () => {
     logout();
     navigate("/");
   };
+
+  const toggleMenu = (event) => {
+    event.stopPropagation();
+    setIsMenuOpen((prevState) => !prevState);
+  };
+  useEffect(() => {
+    const closeMenu = () => {
+      setIsMenuOpen(false);
+    };
+  
+    if (isMenuOpen) {
+      document.addEventListener("click", closeMenu);
+    }
+  
+    return () => {
+      document.removeEventListener("click", closeMenu);
+    };
+  }, [isMenuOpen]);
+
   const renderAuthButtons = () => {
     if (currentUser) {
       return (
         <>
-        <Link to="/mygames">
-            <button className="pixel-btn" role="button" >
+          <Link to="/mygames">
+            <button className="pixel-btn" role="button">
               My Games
             </button>
           </Link>
-         <Link to="/gamenew">
+          <Link to="/gamenew">
             <button className="pixel-btn" role="button">
               Add Game
             </button>
@@ -27,7 +47,6 @@ const Header = ({ currentUser, logout }) => {
               Log Off
             </button>
           </Link>
-         
         </>
       );
     } else {
@@ -51,17 +70,26 @@ const Header = ({ currentUser, logout }) => {
   return (
     <>
       <nav id="nav">
-        <Link to="/">
-          <button className="pixel-btn" role="button">
-            Home
-          </button>
-        </Link>
-        <Link to="/gameindex">
-          <button className="pixel-btn" role="button">
-            Browse
-          </button>
-        </Link>
-        {renderAuthButtons()}
+        <button
+          className="burger-menu"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
+        <div className={`menu ${isMenuOpen ? "open" : ""}`}>
+          <Link to="/">
+            <button className="pixel-btn" role="button">
+              Home
+            </button>
+          </Link>
+          <Link to="/gameindex">
+            <button className="pixel-btn" role="button">
+              Browse
+            </button>
+          </Link>
+          {renderAuthButtons()}
+        </div>
       </nav>
     </>
   );
