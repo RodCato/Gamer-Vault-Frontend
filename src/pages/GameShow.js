@@ -26,15 +26,19 @@ const GameShow = ({ games, currentUser, deleteGame, updateGame }) => {
 
   const handleDeleteAndRedirect = () => {
     handleDelete();
-    window.location.href = "/gameindex"; // Redirect to gameindex page after deleting
+    window.location.href = "/mygames"; // Redirect to gameindex page after deleting
   };
 
   const renderEditDeleteButtons = () => {
     if (currentUser && currentGame && currentUser.id === currentGame.user_id) {
       return (
         <div className="show-buttons">
-          <Button className="pixel-btn" onClick={() => setEditMode(true)}>Edit Game</Button>
-          <Button className="pixel-btn" onClick={handleDeleteAndRedirect}>Delete Game</Button>
+          <Button className="pixel-btn" onClick={() => setEditMode(true)}>
+            Edit Game
+          </Button>
+          <Button className="pixel-btn" onClick={handleDeleteAndRedirect}>
+            Delete Game
+          </Button>
         </div>
       );
     }

@@ -39,10 +39,14 @@ body {
 }
 
 .not-found {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   height: 50%;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  opacity: 50%;
 }
 
 .back-button-404 {
@@ -129,7 +133,6 @@ body {
   text-transform: uppercase;
   font-weight: 900;
   filter: drop-shadow(18px 18px 10px #0f0f0f);
-
 }
 
 @keyframes animate {
@@ -176,7 +179,6 @@ body {
   height: 60%;
   width: 60%;
   filter: drop-shadow(18px 18px 10px #0f0f0f);
-
 }
 
 .title {
@@ -428,8 +430,8 @@ body {
 .about-bio {
   border-radius: 10px;
   text-align: center;
-  padding: 1rem;
-  height: 20vh;
+  padding: 3rem 1rem 2rem 1rem;
+  height: 17vh;
   font-size: 1.3rem;
   font-style: italic;
 }
@@ -515,6 +517,7 @@ body {
 .sm-icons {
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 2rem;
 }
 
 .add-a-game-title {
@@ -553,7 +556,7 @@ body {
   height: 20rem;
 }
 
-.search-results{
+.search-results {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -563,4 +566,51 @@ body {
 
 .search-result {
   margin-bottom: 2rem;
+}
+
+#board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  height: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  border: 10px solid rgb(0, 0, 0);
+  border-radius: 25px;
+  margin-top: 3rem;
+}
+
+#board div {
+  width: 180px;
+  height: 180px;
+  background-image: url("./assets/pipe.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#board div img {
+  width: 100px;
+  height: 100px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  color: #000000;
 }

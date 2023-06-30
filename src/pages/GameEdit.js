@@ -33,15 +33,31 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
 
   const handleDelete = () => {
     deleteGame(gameData.id);
-    navigate("/gameindex");
+    navigate("/mygames");
   };
 
   return (
     <>
-     <div className="my-games-title">
+      <div className="my-games-title">
         <img src={require("../assets/editgame.png")} alt="bubble" />
       </div>
-      
+      {gameData.image && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "20px",
+          }}
+        >
+          <img
+            src={gameData.image}
+            alt={gameData.image}
+            height="250px"
+            width="250px"
+          />
+        </div>
+      )}
       <Form className="edit-game-form">
         <div className="form-group">
           <FormGroup>
@@ -93,7 +109,7 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
               id="game-notes"
               type="textarea"
               name="notes"
-              placeholder="Notes"
+              placeholder="Notes (required)"
               onChange={handleChange}
               value={gameData.notes}
               style={{ height: "5rem", width: "18rem", fontSize: "18px" }}
@@ -109,30 +125,10 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
             />
           </FormGroup>
 
-<div style={{ display:"flex", justifyContent:"space-evenly"}}>
-          <Button
-            onClick={handleSubmit}
-            type="submit"
-            className="pixel-btn"
-            style={{
-              height: "50px",
-              width: "100px",
-              marginTop: "20px",
-              fontSize: ".8rem",
-              textAlign: "center",
-              textDecoration: "none",
-              color: "black",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            Update Game
-          </Button>
-          <Link to="/gameindex">
+          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
             <Button
-              onClick={handleDelete}
-              type="button"
+              onClick={handleSubmit}
+              type="submit"
               className="pixel-btn"
               style={{
                 height: "50px",
@@ -147,9 +143,29 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
                 alignItems: "center",
               }}
             >
-              Delete Game
+              Update Game
             </Button>
-          </Link>
+            <Link to="/gameindex">
+              <Button
+                onClick={handleDelete}
+                type="button"
+                className="pixel-btn"
+                style={{
+                  height: "50px",
+                  width: "100px",
+                  marginTop: "20px",
+                  fontSize: ".8rem",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  color: "black",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                Delete Game
+              </Button>
+            </Link>
           </div>
         </div>
       </Form>
