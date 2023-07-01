@@ -4,6 +4,8 @@ import lipixel from "../assets/lipixel.png";
 import igpixel from "../assets/igpixel.png";
 import folderpixel from "../assets/folderpixel.png";
 import twitterpixel from "../assets/twitterpixel.png";
+import { useParams, Link } from "react-router-dom";
+
 
 const AboutUs = () => {
   const teamMembers = [
@@ -14,14 +16,15 @@ const AboutUs = () => {
       pokemon: require("../assets/bulbaprof.png"),
       bio: (
         <>
-          Master product<br/> & project juggler, <br/>Mountain
+          Master product<br/> &amp; project juggler, <br/>Mountain
           conqueror, <br/>Pasta admirer.
         </>
       ),
-      portfolio: " https://jricks86.github.io/portfolio/",
+      portfolio: "https://jricks86.github.io/portfolio/",
       li: "https://www.linkedin.com/in/jricks86/",
       ig: null,
       twitter: null,
+      page: "/Jess",
     },
     {
       name: "Catalino Rodriguez",
@@ -38,6 +41,7 @@ const AboutUs = () => {
       li: "https://www.linkedin.com/in/catalinorodriguez/",
       ig: null,
       twitter: "https://twitter.com/CRodDev",
+      page: "/CRod",
     },
     {
       name: "Vance Apostol",
@@ -61,6 +65,7 @@ const AboutUs = () => {
       li: "https://www.linkedin.com/in/vancea/",
       ig: "https://www.instagram.com/vanceplants/",
       twitter: null,
+      page: "/Vance",
     },
   ];
 
@@ -87,10 +92,12 @@ const AboutUs = () => {
                 {member.title}
               </CardTitle>
               <CardTitle>
-                <img
-                  alt={`starter pokemon of the member ${member.name}`}
-                  src={member.pokemon}
-                />
+                <Link to={member.page}>
+                  <img
+                    alt={`starter pokemon of the member ${member.name}`}
+                    src={member.pokemon}
+                  />
+                </Link>
               </CardTitle>
 
               <CardSubtitle className="about-bio">
