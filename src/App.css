@@ -125,7 +125,7 @@ body {
   margin: 0;
   font-size: 12vw;
   color: rgba(225, 225, 225, 0.01);
-  background-image: url("src/assets/controller.jpg");
+  background-image: url("assets/controller.jpg"); 
   background-repeat: repeat;
   -webkit-background-clip: text;
   animation: animate 15s ease-in-out infinite;
