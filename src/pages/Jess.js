@@ -13,13 +13,13 @@ const Jess = () => {
   return (
     <main>
       <div className="each-member-container">
-        <Card className="each-member-card">
+        <Card className="each-member-card" style={{width:"30rem"}}>
           <CardImg
             className="each-member-img"
             alt=""
-            src={require("../assets/jesspng.png")}
+            src={require("../assets/jesspng.png")} style={{width:"30rem"}}
           />
-          <CardBody className="each-member-body">
+          <CardBody className="each-member-body" style={{height:"25rem"}}>
             <CardTitle
               style={{
                 fontWeight: "800",

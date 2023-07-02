@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
 
 body {
   background-color: rgb(40, 40, 40);
@@ -125,14 +125,14 @@ body {
   margin: 0;
   font-size: 12vw;
   color: rgba(225, 225, 225, 0.01);
-  background-image: url("https://a-static.besthdwallpaper.com/super-nintendo-controller-wallpaper-1920x1080-13606_48.jpg");
+  background-image: url("/Users/learnacademy/Desktop/frontend/src/assets/controller.jpg");
   background-repeat: repeat;
   -webkit-background-clip: text;
   animation: animate 15s ease-in-out infinite;
   text-align: center;
   text-transform: uppercase;
   font-weight: 900;
-  filter: drop-shadow(18px 18px 10px #0f0f0f);
+  filter: drop-shadow(22px 22px 10px #0f0f0f);
 }
 
 @keyframes animate {
@@ -166,7 +166,7 @@ body {
 .ness img {
   height: 50%;
   width: 50%;
-  filter: drop-shadow(18px 18px 10px #0f0f0f);
+  filter: drop-shadow(22px 22px 10px #0f0f0f);
 }
 
 .bubble {
@@ -178,7 +178,7 @@ body {
 .bubble img {
   height: 60%;
   width: 60%;
-  filter: drop-shadow(18px 18px 10px #0f0f0f);
+  filter: drop-shadow(22px 22px 10px #0f0f0f);
 }
 
 .title {
@@ -200,7 +200,7 @@ body {
 .sign-up-title img {
   height: 25vh;
   width: 25vw;
-  filter: drop-shadow(18px 18px 10px #0f0f0f);
+  filter: drop-shadow(22px 22px 10px #0f0f0f);
 }
 
 .sign-up {
@@ -233,8 +233,9 @@ body {
 .form-group input {
   display: block;
   width: 18rem;
-  height: 1.7rem;
+  height: 2.5rem;
   margin: 20px 0 15px 0;
+  border-radius: 10px;
   font-size: 18px;
   box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.247),
     6.7px 6.7px 5.3px rgba(0, 0, 0, 0.355),
@@ -616,32 +617,28 @@ body {
 }
 
 .each-member-img {
-  width: 50rem;
+  width: 50%;
   object-fit: cover;
+  overflow: hidden;
 }
 
 .each-member-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 14rem;
-  /* background-color: #bec3fa; */
+  margin-bottom: 5rem;
 }
 
 .each-member-body {
+  height: 48rem;
   background-color: #bec3fa;
-  border-radius: 0 0 50px 50px;
-  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.247),
-    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.355),
-    12.5px 12.5px 10px rgba(0, 0, 0, 0.44),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.525),
-    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.633),
-    100px 100px 80px rgba(0, 0, 0, 0.88);
+  border-radius: 0 50px 50px 0;
+
 }
 
 .each-member-card {
   display: block;
   width: 50rem;
-  margin-top: 8rem;
+  margin-top: 5rem;
   background-color: #bec3fa;
   border-radius: 50px;
   box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.247),
@@ -650,6 +647,12 @@ body {
   22.3px 22.3px 17.9px rgba(0, 0, 0, 0.525),
   41.8px 41.8px 33.4px rgba(0, 0, 0, 0.633),
   100px 100px 80px rgba(0, 0, 0, 0.88);
+}
+
+.each-member-bio {
+ text-align: center;
+  width: 90%;
+  padding: 0 2rem 0 2rem;
 }
 
 /* Burger  */
@@ -666,6 +669,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    color: #bec3fa;
   }
   .menu {
     display: flex;
@@ -685,3 +689,32 @@ body {
 }
 
 /* End Burger  */
+
+/* emoji bullets in about me */
+
+.emoji-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emoji-bullets li {
+  padding-left: 1rem;
+  text-indent: -0.75rem;
+}
+
+.emoji-bullets li::before {
+  content: '🧘 ';
+}
+
+.emoji-bullets li:nth-child(2)::before {
+  content: '🛼 ';
+}
+
+.emoji-bullets li:nth-child(3)::before {
+  content: '🤓 ';
+}
+
+.emoji-bullets li:nth-child(4)::before {
+  content: '🍣 ';
+}
