@@ -74,7 +74,7 @@ const CRod = () => {
                 padding: "3rem 0 3rem 0",
               }}
             >
-              ⚡️ Full-Stack Web Developer and Engineer 🪄
+              ⚡️ Software Developer Extraordinaire 🪄
               <br />
             </CardSubtitle>
             <div
@@ -141,7 +141,6 @@ const CRod = () => {
                       textDecoration: "none",
                     }}
                   >
-                    Practicing Kata's
                   </a>
                 </li>
                 <li>Battling Foe's on Mario Kart</li>
