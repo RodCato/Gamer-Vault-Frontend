@@ -718,3 +718,23 @@ body {
 .emoji-bullets li:nth-child(4)::before {
   content: '🍣 ';
 }
+.emoji-bullets li {
+  padding-left: 1rem;
+  text-indent: -0.75rem;
+}
+
+.emojiCr-bullets li::before {
+  content: '⚔️ ';
+}
+
+.emojicr-bullets li:nth-child(2)::before {
+  content: '💻 ';
+}
+
+.emojicr-bullets li:nth-child(3)::before {
+  content: '🎮 ';
+}
+
+.emojicr-bullets li:nth-child(4)::before {
+  content: '🫶🏽';
+}
