@@ -95,7 +95,7 @@ const AboutUs = () => {
                 <Link to={member.page}>
                   <img
                     alt={`starter pokemon of the member ${member.name}`}
-                    src={member.pokemon}
+                    src={member.pokemon} style={{cursor:`url(${require("../assets/pokeball.png")}), auto`}}
                   />
                 </Link>
               </CardTitle>

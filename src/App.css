@@ -21,7 +21,6 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
   cursor: default;
-  /* position: fixed; */
   top: 0;
   left: 0;
   right: 0;
@@ -39,9 +38,6 @@ body {
 }
 
 .not-found {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   height: 50%;
   position: absolute;
   width: 100%;
@@ -78,6 +74,7 @@ body {
   padding: 12px 12px 12px 12px;
   color: rgb(22, 22, 22);
   width: 25rem;
+  height: 2rem;
   border-radius: 15px;
   font-family: "Press Start 2P", cursive;
   box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.247),
