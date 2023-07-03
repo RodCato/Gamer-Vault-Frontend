@@ -11,7 +11,7 @@ Live Link: https://gamer-vault.onrender.com/
 <br>
 <br>
 
-## <span style="color: faf5be"> INSTRUCTIONS
+## <span style="color: #faf5be">INSTRUCTIONS</span>
 1. Utilize the <em>Browse</em> or <em>Search</em> features to find games.
 2. Click the <em>Sign Up</em> button to create an account.
 3. Add games to your vault by selecting them, then clicking "Add" once user account is created.
@@ -23,12 +23,14 @@ Live Link: https://gamer-vault.onrender.com/
 <br>
 <br>
 
-## <span style="color: fabec3"> FEATURES
+## <span style="color: #fabec3">FEATURES</span>
 <strong>User authentication</strong>: Users can create an account and log in to access their personalized game list.
 
 <strong>Game browsing</strong>: Users can browse a catalog of available games.
 
-<strong>Search functionality</strong>: Users can easily search external API for specific games by title.
+<strong>Text-based Search</strong>: Users can input the title of a game using the keyboard and instantly search the external API for matching results.
+
+<strong>Voice-based Search</strong>: To make the search process even more convenient, we have integrated voice search functionality. Users can now initiate the voice search by clicking on a microphone icon or using a voice command like "Search game." The application will capture their spoken words and convert them into text using a reliable speech recognition system.
 
 <strong>Add games</strong>: Users can add games from the catalog to their personal game list.
 
@@ -41,7 +43,7 @@ Live Link: https://gamer-vault.onrender.com/
 <br>
 <br>
 
-## <span style="color: bee1fa"> DEPENDENCIES
+## <span style="color: #bee1fa">DEPENDENCIES</span>
 Yarn<br>
 React<br>
 React-DOM<br>
@@ -54,7 +56,7 @@ Gems<br>
 <br>
 <br>
 
-## <span style="color: bee1fa"> TESTING
+## <span style="color: #bee1fa">TESTING</span>
 Backend testing with RSpec for controller methods and validations<br>
 Frontend testing with React Testing Library for components and pages<br>
 
@@ -62,11 +64,11 @@ Frontend testing with React Testing Library for components and pages<br>
 <br>
 <br>
 
-## <span style="color: c3fabe"> RUNNING THE PROJECT
+## <span style="color: #c3fabe"> RUNNING THE PROJECT
 1. Clone the Backend and Frontend Repos
 2. cd into the directory and run `bundle` on the backend
 3. Run db:setup to setup the database
-4. Run `rails s` to start your server
+4. Run `rails s` to start your backend server
 2. cd into the directory and run `yarn install` on the frontend
 3. Run `yarn add react-router-dom`
 4. Run `yarn start`
@@ -75,10 +77,10 @@ Frontend testing with React Testing Library for components and pages<br>
 <br>
 <br>
 
-## <span style="color: faf5be"> CONTRIBUTORS
-CATALINO RODRIGUEZ (C ROD) - Tech Lead <br>
-VANCE APOSTOL - Design Lead <br>
-JESSICA RICKS - Product / Project Manager
+## <span style="color: #faf5be"> CONTRIBUTORS
+[CATALINO RODRIGUEZ (C ROD)](https://github.com/RodCato) - Tech Lead <br>
+[VANCE APOSTOL](https://github.com/m3vance) - Design Lead <br>
+[JESSICA RICKS](https://github.com/jricks86) - Product / Project Manager
 
 <br>
 <br>
@@ -92,15 +94,4 @@ JESSICA RICKS - Product / Project Manager
 
 
 
-      #These are options for home.js title styling
-
-<h1 style={{fontSize: "15em", color:"RGB(186, 159, 231)"}}>Ga<span style={{color: "rgb(121, 159, 203)"}}>m<span style={{color: "#F7EDA3"}}>er</span></span><span style={{color: "rgb(249, 102, 94)"}}>Va</span><span style={{color: "rgb(170, 240, 210)"}}>ul</span>t
-            </h1>
-
-<h2 class="title">
-<span class="title-word title-word-1">Ga</span>
-<span class="title-word title-word-2">mer</span>
-<span class="title-word title-word-3">vau</span>
-<span class="title-word title-word-4">lt</span>
-
-  </h2>
+     
