@@ -89,13 +89,11 @@ const GameIndex = ({ games, deleteGame }) => {
                   <CardTitle style={{ fontWeight: "600" }}>{game.title}</CardTitle>
                   <div className="button-container">
                     <Button className="pixel-btn">
-                      <NavLink to={`/gameshow/${game.id}`} className="nav-link">
+                      <NavLink to={`/game/${game.id}`} className="nav-link">
                         See Game Details
                       </NavLink>
                     </Button>
-                    <Button className="pixel-btn" onClick={() => handleDelete(game.id)}>
-                      Delete Game
-                    </Button>
+                    
                   </div>
                 </CardBody>
               </Card>
