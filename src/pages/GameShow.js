@@ -26,7 +26,7 @@ const GameShow = ({ games, currentUser, deleteGame, updateGame }) => {
 
   const handleDeleteAndRedirect = () => {
     handleDelete();
-    window.location.href = "/mygames"; // Redirect to gameindex page after deleting
+    window.location.href = "/mygames"; 
   };
 
   const renderEditDeleteButtons = () => {
