@@ -4,11 +4,10 @@ import gamingVance from "../assets/gaming-vance.png";
 import gamingCRod from "../assets/gaming-crod.png";
 import bomb from "../assets/bomb.png";
 
-const WhacADev = ({ score, setScore }) => {
+const WhacADev = ({ score, setScore, gameOver, setGameOver }) => {
   const [currDevTile, setCurrDevTile] = useState(null);
   const [currBombTile, setCurrBombTile] = useState(null);
-  // const [score, setScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+  // const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     setGame();
@@ -70,7 +69,7 @@ const WhacADev = ({ score, setScore }) => {
     if (gameOver) {
       return;
     }
-    const selectedTileId = event.currentTarget.id; // Use currentTarget instead of target
+    const selectedTileId = event.currentTarget.id;
     if (selectedTileId === currDevTile) {
       setScore((prevScore) => prevScore + 1);
     } else if (selectedTileId === currBombTile) {
@@ -81,9 +80,9 @@ const WhacADev = ({ score, setScore }) => {
 
   return (
     <div>
-      {/* Render the game board and score */}
+            {/* <div id="score">{gameOver ? "GAME OVER" : score}</div> */}
+
       <div id="board">
-        {/* Render the grid tiles */}
         {[...Array(9)].map((_, index) => (
           <div
             className="tile"
@@ -142,7 +141,6 @@ const WhacADev = ({ score, setScore }) => {
           </div>
         ))}
       </div>
-      <div id="score">{gameOver ? "GAME OVER" : null}</div>
     </div>
   );
 };

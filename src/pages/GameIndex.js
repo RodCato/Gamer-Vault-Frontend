@@ -66,17 +66,41 @@ const GameIndex = ({ games, deleteGame }) => {
       <div style={{ marginTop: "4rem" }}>
         <SearchComponent searchTerm={searchTerm} handleSearch={handleSearch} />
       </div>
-      <div style={{ textAlign: "center" }}>
-        <Button className="sort-button" onClick={() => setSortBy("title")}>
-          Sort by Title
-        </Button>
-        <Button className="sort-button" onClick={() => setSortBy("date")}>
-          Sort by Date Added
-        </Button>
-        <Button className="sort-button" onClick={() => setReverseOrder(!reverseOrder)}>
-          Reverse Order
-        </Button>
-      </div>
+      <div style={{ display:"flex", justifyContent:"center", gap:"1rem" }}>
+  <label>
+    <input
+      type="radio"
+      name="sortType"
+      value="title"
+      checked={sortBy === "title"}
+      onChange={() => setSortBy("title")}
+    />
+    Sort by Title
+  </label>
+  <label>
+    <input
+      type="radio"
+      name="sortType"
+      value="date"
+      checked={sortBy === "date"}
+      onChange={() => setSortBy("date")}
+    />
+    Sort by Date Added
+  </label>
+  <label>
+    <input
+      type="checkbox"
+      checked={reverseOrder}
+      onChange={() => setReverseOrder(!reverseOrder)}
+    />
+    {reverseOrder ? "Order is reversed" : "Reverse Order"}
+  </label>
+</div>
+
+
+
+
+
       <main className="card-columns">
         {sortedGames.map((game, index) => {
           return (
