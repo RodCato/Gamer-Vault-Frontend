@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Card, CardBody, CardTitle, Button, Label, Input } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
 const SearchComponent = () => {
   const navigate = useNavigate();
-
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const searchInputRef = useRef(null);
 
-  const fetchSearchResults = async () => {
+  const fetchSearchResults = async (query) => {
     try {
-      const apiKey = process.env.REACT_APP_API_KEY; 
+      const apiKey = process.env.REACT_APP_API_KEY;
       const response = await fetch(
-        `https://api.rawg.io/api/games?key=${apiKey}&search=${searchQuery}`
+        `https://api.rawg.io/api/games?key=${apiKey}&search=${query}`
       );
       const data = await response.json();
       const gamesArray = data.results;
@@ -37,7 +37,7 @@ const SearchComponent = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    fetchSearchResults();
+    fetchSearchResults(searchQuery);
   };
 
   const handleSaveGame = (game) => {
@@ -53,6 +53,23 @@ const SearchComponent = () => {
     });
   };
 
+  const handleVoiceSearch = async () => {
+    const recognition = new window.webkitSpeechRecognition();
+
+    recognition.start();
+
+    recognition.onresult = (event) => {
+      const speechResult = event.results[0][0].transcript;
+      searchInputRef.current.value = speechResult;
+      setSearchQuery(speechResult);
+      fetchSearchResults(speechResult);
+    };
+
+    recognition.onend = () => {
+      recognition.stop();
+    };
+  };
+
   return (
     <>
       <form className="form" onSubmit={handleSearch}>
@@ -64,9 +81,11 @@ const SearchComponent = () => {
             onChange={handleSearchChange}
             placeholder="Enter a game..."
             className="search-input"
+            ref={searchInputRef}
           />
         </div>
         <Button type="submit">Search</Button>
+        <Button onClick={handleVoiceSearch}>Voice Search</Button>
       </form>
       <div className="search-results">
         {searchResults.map((game) => (

@@ -60,7 +60,7 @@ const CRod = () => {
               >
                 <p align="center">
                   <a href="https://github.com/RodCato">
-                    <img src="https://readme-typing-svg.herokuapp.com/?lines=🪄%20Hi,%20I'm%20Catalino%20(aka%20C%20Rod)%20;🪄%20Full%20Stack%20Web%20Developer;🪄%20Multi-Potentialite%20Extraordinaire;🪄%20Thanks%20for%20stopping%20by🙌🏽!&font=Josefin%20Sans&center=true&width=650&height=90&weight=700&color=0c7dff&vCenter=true&size=35%42" />
+                    <img src="https://readme-typing-svg.herokuapp.com/?lines=🪄%20Hi,%20I'm%20Catalino%20(aka%20C%20Rod)%20;🪄%20Full%20Stack%20Web%20Developer;🪄%20Multi-Potentialite%20Extraordinaire;🪄%20Thanks%20for%20stopping%20by🙌🏽!&font=Josefin%20Sans&center=true&width=650&height=90&weight=700&color=000&vCenter=true&size=35%42" />
                   </a>
                 </p>
               </div>
@@ -74,7 +74,7 @@ const CRod = () => {
                 padding: "3rem 0 3rem 0",
               }}
             >
-              ⚡️ Software Developer Extraordinaire 🪄
+              ⚡️ Software Developer Extraordinaire 
               <br />
             </CardSubtitle>
             <div
@@ -108,7 +108,7 @@ const CRod = () => {
             </div>
             <CardText className="each-member-bio">
               <p>
-                👋🏽My name is Catalino Rodriguez (aka C Rod), and I am a US Army
+                👋🏽 I am a US Army
                 Combat Medic Veteran⛑️. Currently, I am expanding my skill set
                 in Full Stack Web Development at{" "}
                 <a
@@ -129,23 +129,7 @@ const CRod = () => {
                 am excited to apply my technical expertise and dedication to
                 creating impactful web solutions that make a difference.
               </p>
-              <ul className="emojicr-bullets" style={{ color: "#1a1919" }}>
-                In my free time, I enjoy:
-                <li>solving CodeWar Kata's</li>
-                <li>
-                  <a
-                    href="https://www.codewars.com/r/pi9_Uw"
-                    target="_blank"
-                    style={{
-                      color: "rgb(53, 27, 125)",
-                      textDecoration: "none",
-                    }}
-                  >
-                  </a>
-                </li>
-                <li>Battling Foe's on Mario Kart</li>
-                <li>Spending time with family</li>
-              </ul>
+            
             </CardText>
           </CardBody>
         </Card>

@@ -37,7 +37,7 @@ const Header = ({ currentUser, logout }) => {
               My Games
             </button>
           </Link>
-          <Link to="/gamenew">
+          <Link to="/new">
             <button className="pixel-btn" role="button">
               Add Game
             </button>
@@ -83,7 +83,7 @@ const Header = ({ currentUser, logout }) => {
               Home
             </button>
           </Link>
-          <Link to="/gameindex">
+          <Link to="/games">
             <button className="pixel-btn" role="button">
               Browse
             </button>

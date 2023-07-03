@@ -27,7 +27,7 @@ const GameProtectedIndex = ({ currentUser, games }) => {
 
                   <div className="button-container">
                     <Button className="pixel-btn">
-                      <NavLink to={`/gameshow/${game.id}`} className="nav-link">
+                      <NavLink to={`/game/${game.id}`} className="nav-link">
                         See Game Details
                       </NavLink>
                     </Button>

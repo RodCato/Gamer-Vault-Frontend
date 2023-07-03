@@ -28,7 +28,7 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
 
   const handleSubmit = () => {
     updateGame(gameData);
-    navigate("/gameindex");
+    navigate("/games");
   };
 
   const handleDelete = () => {
@@ -145,7 +145,7 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
             >
               Update Game
             </Button>
-            <Link to="/gameindex">
+            <Link to="/mygames">
               <Button
                 onClick={handleDelete}
                 type="button"

@@ -7,6 +7,9 @@ const GameIndex = ({ games, deleteGame }) => {
   const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredGames, setFilteredGames] = useState([]);
+  const [sortBy, setSortBy] = useState("");
+  const [sortedGames, setSortedGames] = useState([]);
+
   const handleDelete = (id) => {
     deleteGame(id);
   };
@@ -28,45 +31,64 @@ const GameIndex = ({ games, deleteGame }) => {
     }
   }, [games, searchTerm]);
 
+  useEffect(() => {
+    let sorted = filteredGames;
+
+    if (sortBy === "title") {
+      sorted = [...filteredGames].sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+    } else if (sortBy === "date") {
+      sorted = [...filteredGames].sort((a, b) =>
+        new Date(b.dateAdded) - new Date(a.dateAdded)
+      );
+    }
+
+    setSortedGames(sorted);
+  }, [filteredGames, sortBy]);
+
   const handleSearch = (searchValue) => {
     const queryParams = new URLSearchParams();
     queryParams.set("search", searchValue);
     const newSearch = queryParams.toString();
 
-    // Update the URL with the new search parameter
     window.history.pushState({}, "", `?${newSearch}`);
 
     setSearchTerm(searchValue);
+    setSortBy("");
+    setSortedGames([]);
   };
-  console.log("Filtered Games:", filteredGames);
+
   return (
     <div>
-      <div style={{marginTop:"4rem"}}>
+      <div style={{ textAlign: "center", marginTop: "4rem" }}>
         <SearchComponent searchTerm={searchTerm} handleSearch={handleSearch} />
       </div>
+      <div style={{ textAlign: "center", marginTop: "1rem" }}>
+        <Button onClick={() => setSortBy("title")}>
+          Sort by Title
+        </Button>
+        <Button onClick={() => setSortBy("date")}>
+          Sort by Date Added
+        </Button>
+      </div>
       <main className="card-columns">
-        {filteredGames.map((game, index) => {
+        {sortedGames.map((game, index) => {
           return (
             <div key={index}>
               <br />
               <br />
               <Card className="eachCard">
-                <img
-                  alt={`profile of the game ${game.title}`}
-                  src={game.image}
-                />
-
+                <img alt={`profile of the game ${game.title}`} src={game.image} />
                 <CardBody className="card-body">
-                  <CardTitle style={{ fontWeight: "600" }}>
-                    {game.title}
-                  </CardTitle>
-
+                  <CardTitle style={{ fontWeight: "600" }}>{game.title}</CardTitle>
                   <div className="button-container">
                     <Button className="pixel-btn">
-                      <NavLink to={`/gameshow/${game.id}`} className="nav-link">
+                      <NavLink to={`/game/${game.id}`} className="nav-link">
                         See Game Details
                       </NavLink>
                     </Button>
+                   
                   </div>
                 </CardBody>
               </Card>
