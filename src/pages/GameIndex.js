@@ -8,7 +8,7 @@ const GameIndex = ({ games, deleteGame }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredGames, setFilteredGames] = useState([]);
   const [sortBy, setSortBy] = useState("");
-  const [sortedGames, setSortedGames] = useState([]);
+  const [reverseOrder, setReverseOrder] = useState(false);
 
   const handleDelete = (id) => {
     deleteGame(id);
@@ -31,21 +31,21 @@ const GameIndex = ({ games, deleteGame }) => {
     }
   }, [games, searchTerm]);
 
-  useEffect(() => {
-    let sorted = filteredGames;
+  const sortGames = (gamesToSort) => {
+    let sorted = [...gamesToSort];
 
     if (sortBy === "title") {
-      sorted = [...filteredGames].sort((a, b) =>
-        a.title.localeCompare(b.title)
-      );
+      sorted.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sortBy === "date") {
-      sorted = [...filteredGames].sort((a, b) =>
-        new Date(b.dateAdded) - new Date(a.dateAdded)
-      );
+      sorted.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
     }
 
-    setSortedGames(sorted);
-  }, [filteredGames, sortBy]);
+    if (reverseOrder) {
+      sorted.reverse();
+    }
+
+    return sorted;
+  };
 
   const handleSearch = (searchValue) => {
     const queryParams = new URLSearchParams();
@@ -56,20 +56,25 @@ const GameIndex = ({ games, deleteGame }) => {
 
     setSearchTerm(searchValue);
     setSortBy("");
-    setSortedGames([]);
+    setReverseOrder(false);
   };
+
+  const sortedGames = sortGames(filteredGames);
 
   return (
     <div>
-      <div style={{ textAlign: "center", marginTop: "4rem" }}>
+      <div style={{ marginTop: "4rem" }}>
         <SearchComponent searchTerm={searchTerm} handleSearch={handleSearch} />
       </div>
-      <div style={{ textAlign: "center", marginTop: "1rem" }}>
-        <Button onClick={() => setSortBy("title")}>
+      <div style={{ textAlign: "center" }}>
+        <Button className="sort-button" onClick={() => setSortBy("title")}>
           Sort by Title
         </Button>
-        <Button onClick={() => setSortBy("date")}>
+        <Button className="sort-button" onClick={() => setSortBy("date")}>
           Sort by Date Added
+        </Button>
+        <Button className="sort-button" onClick={() => setReverseOrder(!reverseOrder)}>
+          Reverse Order
         </Button>
       </div>
       <main className="card-columns">
@@ -84,11 +89,13 @@ const GameIndex = ({ games, deleteGame }) => {
                   <CardTitle style={{ fontWeight: "600" }}>{game.title}</CardTitle>
                   <div className="button-container">
                     <Button className="pixel-btn">
-                      <NavLink to={`/game/${game.id}`} className="nav-link">
+                      <NavLink to={`/gameshow/${game.id}`} className="nav-link">
                         See Game Details
                       </NavLink>
                     </Button>
-                   
+                    <Button className="pixel-btn" onClick={() => handleDelete(game.id)}>
+                      Delete Game
+                    </Button>
                   </div>
                 </CardBody>
               </Card>

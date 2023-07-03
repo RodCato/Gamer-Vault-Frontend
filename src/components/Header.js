@@ -37,7 +37,7 @@ const Header = ({ currentUser, logout }) => {
               My Games
             </button>
           </Link>
-          <Link to="/new">
+          <Link to="/gamenew">
             <button className="pixel-btn" role="button">
               Add Game
             </button>
