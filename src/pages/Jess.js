@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import folderpixel from "../assets/folderpixel.png";
+import lipixel from "../assets/lipixel.png";
 import {
   Card,
   CardBody,
@@ -11,15 +14,39 @@ import {
 
 const Jess = () => {
   return (
-    <main>
-      <div className="each-member-container">
-        <Card className="each-member-card">
-          <CardBody className="each-member-body">
-            <CardImg
-              className="each-member-img"
-              alt="picture of Jessica"
-              src={require("../assets/jesspng.png")}
-            />
+    <main style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        className="each-member-container"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "75%",
+        }}
+      >
+        <Card
+          className="each-member-card"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            height: "90%",
+          }}
+        >
+          <CardImg
+            className="each-member-img"
+            alt="picture of Jessica"
+            src={require("../assets/jesspng.png")}
+            style={{
+              borderRadius: "50px 0 0 50px",
+              width: "50%",
+              height: "auto",
+            }}
+          />
+          <CardBody
+            className="each-member-body"
+            style={{ height: "100%", width: "50%" }}
+          >
             <CardTitle
               style={{
                 fontWeight: "500",
@@ -27,7 +54,6 @@ const Jess = () => {
                 marginTop: "5rem",
                 fontFamily: "fantasy",
                 fontStyle: "italic",
-                // textShadow: "1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue",
                 backgroundImage:
                   "linear-gradient(90deg, rgba(2,0,36,1) 5%, rgba(126,11,190,1) 40%, rgba(19,155,182,1) 85%)",
                 WebkitBackgroundClip: "text",
@@ -48,6 +74,33 @@ const Jess = () => {
             >
               Full Stack Web Developer
             </CardSubtitle>
+            <div
+              className="sm-icons"
+              style={{ marginBottom: "0", paddingBlock: "0" }}
+            >
+              <Link
+                to="https://jricks86.github.io/portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  alt="portfolio"
+                  src={folderpixel}
+                  style={{ height: "4rem", width: "4rem" }}
+                />
+              </Link>
+              <Link
+                to="https://www.linkedin.com/in/jricks86/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  alt="LinkedIn"
+                  src={lipixel}
+                  style={{ height: "3rem", width: "3rem" }}
+                />
+              </Link>
+            </div>
             <CardText
               style={{
                 color: "black",
