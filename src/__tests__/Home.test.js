@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import Header from "../components/Header";
+import Home from "../pages/Home";
 
-describe("<Header />", () => {
+describe("<Home />", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     render(
       <BrowserRouter>
-        <Header />
+        <Home />
       </BrowserRouter>,
       div
     );
@@ -16,14 +16,19 @@ describe("<Header />", () => {
   it("has clickable links", () => {
     render(
       <BrowserRouter>
-        <Header />
+        <Home />
       </BrowserRouter>
     );
-    userEvent.click(screen.getByText("Home"));
-    expect(screen.getByText("Home")).toBeInTheDocument();
-    userEvent.click(screen.getByText("Browse"));
-    expect(screen.getByText("Browse")).toBeInTheDocument();
-    userEvent.click(screen.getByText("Sign Up"));
-    expect(screen.getByText("Sign Up")).toBeInTheDocument();
+    userEvent.click(screen.getByText("Search"));
+    expect(screen.getByText("Search")).toBeInTheDocument();
   });
+   it("should render an image", () => {
+     render(
+       <BrowserRouter>
+         <Home />
+       </BrowserRouter>
+     );
+     const image = screen.getByAltText("Ness");
+     expect(image).toBeInTheDocument();
+   });
 });
