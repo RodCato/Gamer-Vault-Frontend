@@ -1,32 +1,44 @@
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
+import { render, fireEvent } from "@testing-library/react";
+import { BrowserRouter, Router } from "react-router-dom";
 import Header from "../components/Header";
 
-describe("<Header />", () => {
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
-    render(
+describe("Header", () => {
+  test("renders navigation buttons correctly when user is logged in", () => {
+    const currentUser = { name: "John" };
+    const logout = jest.fn();
+    const { getByRole, getByText } = render(
       <BrowserRouter>
-        <Header />
-      </BrowserRouter>,
-      div
-    );
-  });
-
-  it("has clickable links", () => {
-    render(
-      <BrowserRouter>
-        <Header />
+        <Header currentUser={currentUser} logout={logout} />
       </BrowserRouter>
     );
-    userEvent.click(screen.getByText("Home"));
-    expect(screen.getByText("Home")).toBeInTheDocument();
-    userEvent.click(screen.getByText("Browse"));
-    expect(screen.getByText("Browse")).toBeInTheDocument();
-    userEvent.click(screen.getByText("Sign Up"));
-    expect(screen.getByText("Sign Up")).toBeInTheDocument();
-    userEvent.click(screen.getByText("Login"));
-    expect(screen.getByText("Login")).toBeInTheDocument();
+
+    const myGamesButton = getByRole("button", { name: "My Games" });
+    expect(myGamesButton).toBeInTheDocument();
+
+    const addGameButton = getByRole("button", { name: "Add Game" });
+    expect(addGameButton).toBeInTheDocument();
+
+    const logOffButton = getByRole("button", { name: "Log Off" });
+    expect(logOffButton).toBeInTheDocument();
+
+    fireEvent.click(logOffButton);
+    expect(logout).toHaveBeenCalled();
+  });
+
+  test("renders navigation buttons correctly when user is not logged in", () => {
+    const currentUser = null;
+    const { getByRole, getByText } = render(
+      <BrowserRouter>
+        <Header currentUser={currentUser} />
+      </BrowserRouter>
+    );
+
+    
+    const signUpButton = getByRole("button", { name: "Sign Up" });
+    expect(signUpButton).toBeInTheDocument();
+
+    
+    const loginButton = getByRole("button", { name: "Login" });
+    expect(loginButton).toBeInTheDocument();
   });
 });

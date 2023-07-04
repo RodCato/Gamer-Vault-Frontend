@@ -14,9 +14,25 @@ import {
 
 const Vance = () => {
   return (
-    <main style={{display: "flex", justifyContent: "center"}}>
-      <div className="each-member-container" style={{display: "flex", justifyContent: "center", alignItems:"center", width: "75%"}}>
-        <Card className="each-member-card" style={{display: "flex", justifyContent: "center", width:"100%", height: "90%"}}>
+    <main style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        className="each-member-container"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "75%",
+        }}
+      >
+        <Card
+          className="each-member-card"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            height: "90%",
+          }}
+        >
           <CardImg
             className="each-member-img"
             alt=""
@@ -27,7 +43,8 @@ const Vance = () => {
               height: "auto",
             }}
           />
-          <CardBody className="each-member-body" style={{ height:"100%", width:"50%"}}>
+          <CardBody className="each-member-body" style={{ height: "100%", width: "50%", borderTop: "none"
+ }}>
             <CardTitle className="each-member-title">
               <div
                 style={{
@@ -36,7 +53,7 @@ const Vance = () => {
                   fontWeight: "400",
                   fontSize: "9vh",
                   filter: "drop-shadow(7px 7px 7px #0f0f0f)",
-                  marginTop:"2rem"
+                  marginTop: "2rem",
                 }}
               >
                 <span style={{ color: "#1A1919", fontStyle: "italic" }}>V</span>
@@ -60,15 +77,17 @@ const Vance = () => {
               style={{
                 fontWeight: "300",
                 fontSize: "2.5rem",
-                marginBlock: "2rem",
+                margin: "2.5rem 0 0 0",
                 padding: "3rem 0 3rem 0",
               }}
             >
-              Full-Stack developer <br />& UX/UI Designer
+              Full-Stack developer
+              <br />
+              & UX/UI Designer
             </CardSubtitle>
             <div
               className="sm-icons"
-              style={{ marginBottom: "0", paddingBlock: "0" }}
+              style={{ padding: "0" }}
             >
               <Link
                 to="https://lotus.haleakaladesign.com/lotus/"
@@ -105,28 +124,32 @@ const Vance = () => {
               </Link>
             </div>
             <CardText className="each-member-bio">
-              <p>
-                As a versatile professional, I've had the privilege of exploring
-                various career paths such as military, sales, audio engineering,
-                and bartending. However, my attraction to technology and design
-                led me to enroll in a 4-month full-stack boot camp at{" "}
-                <a
-                  href="https://learnacademy.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "rgb(53, 12, 167)", textDecoration: "none" }}
-                >
-                  LEARN Academy
-                </a>{" "}
-                to hone my skills and pursue my dreams. Passionate about
-                practicing altruism, I strive to be the best version of myself
-                to contribute positively to everyone around me. During my free
-                time, I enjoy the simple things in life which include wearing
-                comfortable, baggy clothes, being silly and sharing laughs with
-                loved ones until we can't breathe. 🤣
-              </p>
-              <ul className="emoji-bullets" style={{ color: "#1a1919" }}>
-                In my free time, I enjoy:
+              As a versatile professional, I've had the privilege of exploring
+              various career paths such as military, sales, audio engineering,
+              and bartending. However, my attraction to technology and design
+              led me to enroll in a 4-month full-stack boot camp at{" "}
+              <a
+                href="https://learnacademy.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "rgb(53, 12, 167)",
+                  textDecoration: "none",
+                }}
+              >
+                LEARN Academy
+              </a>{" "}
+              to hone my skills and pursue my dreams. Passionate about
+              practicing altruism, I strive to be the best version of myself
+              to contribute positively to everyone around me. During my free
+              time, I enjoy the simple things in life, which include wearing
+              comfortable, baggy clothes, being silly and sharing laughs with
+              loved ones until we can't breathe. 🤣
+            </CardText>
+            <div style={{textAlign:"center"}}> In my free time, I enjoy:</div>
+
+            <div className="emoji-bullets" style={{ color: "#1a1919" }}>
+              <ul>
                 <li>Pretending to meditate</li>
                 <li>
                   <a
@@ -144,7 +167,7 @@ const Vance = () => {
                 <li>Indulging in anime</li>
                 <li>Eating sushi (with saké!)</li>
               </ul>
-            </CardText>
+            </div>
           </CardBody>
         </Card>
       </div>

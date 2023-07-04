@@ -58,11 +58,9 @@ const CRod = () => {
                   marginTop: "2rem",
                 }}
               >
-                <p align="center">
-                  <a href="https://github.com/RodCato">
-                    <img src="https://readme-typing-svg.herokuapp.com/?lines=🪄%20Hi,%20I'm%20Catalino%20(aka%20C%20Rod)%20;🪄%20Full%20Stack%20Web%20Developer;🪄%20Multi-Potentialite%20Extraordinaire;🪄%20Thanks%20for%20stopping%20by🙌🏽!&font=Josefin%20Sans&center=true&width=650&height=90&weight=700&color=000&vCenter=true&size=35%42" />
-                  </a>
-                </p>
+                <a href="https://github.com/RodCato">
+                  <img src="https://readme-typing-svg.herokuapp.com/?lines=🪄%20Hi,%20I'm%20Catalino%20(aka%20C%20Rod)%20;🪄%20Full%20Stack%20Web%20Developer;🪄%20Multi-Potentialite%20Extraordinaire;🪄%20Thanks%20for%20stopping%20by🙌🏽!&font=Josefin%20Sans&center=true&width=650&height=90&weight=700&color=000&vCenter=true&size=35%42" />
+                </a>
               </div>
             </CardTitle>
             <CardSubtitle
@@ -81,24 +79,21 @@ const CRod = () => {
               className="sm-icons"
               style={{ marginBottom: "0", paddingBlock: "0" }}
             >
-              <Link to="https://crod.co" target="_blank">
+              <Link to="https://crod.co" target="_blank" data-testid="portfolio-link">
                 <img
                   alt="portfolio"
                   src={folderpixel}
                   style={{ height: "4rem", width: "4rem" }}
                 />
               </Link>
-              <Link
-                to="https://www.linkedin.com/in/catalinorodriguez"
-                target="_blank"
-              >
+              <Link to="https://www.linkedin.com/in/catalinorodriguez" target="_blank" data-testid="linkedin-link">
                 <img
                   alt="LinkedIn"
                   src={lipixel}
                   style={{ height: "3rem", width: "3rem" }}
                 />
               </Link>
-              <Link to="https://twitter.com/croddev" target="_blank">
+              <Link to="https://twitter.com/croddev" target="_blank" data-testid="twitter-link">
                 <img
                   alt="Crod Twitter Profile"
                   src={twitterpixel}
@@ -107,29 +102,7 @@ const CRod = () => {
               </Link>
             </div>
             <CardText className="each-member-bio">
-              <p>
-                👋🏽 I am a US Army
-                Combat Medic Veteran⛑️. Currently, I am expanding my skill set
-                in Full Stack Web Development at{" "}
-                <a
-                  href="https://learnacademy.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "rgb(53, 12, 167)", textDecoration: "none" }}
-                >
-                  LEARN academy
-                </a>{" "}
-                I bring a unique blend of problem-solving skills, creativity,
-                and real-world experience to the table. With a passion for
-                helping others, I thrive on finding innovative solutions that
-                address the needs of both clients and end-users. Through my
-                military background and growth mindset, I have honed my ability
-                to work well under pressure, adapt to rapidly changing
-                environments, and collaborate effectively with diverse teams. I
-                am excited to apply my technical expertise and dedication to
-                creating impactful web solutions that make a difference.
-              </p>
-            
+              👋🏽 I am a US Army Combat Medic Veteran⛑️. Currently, I am expanding my skill set in Full Stack Web Development at <a href="https://learnacademy.org/" target="_blank" rel="noopener noreferrer" style={{ color: "rgb(53, 12, 167)", textDecoration: "none" }}>LEARN academy</a>. I bring a unique blend of problem-solving skills, creativity, and real-world experience to the table. With a passion for helping others, I thrive on finding innovative solutions that address the needs of both clients and end-users. Through my military background and growth mindset, I have honed my ability to work well under pressure, adapt to rapidly changing environments, and collaborate effectively with diverse teams. I am excited to apply my technical expertise and dedication to creating impactful web solutions that make a difference.
             </CardText>
           </CardBody>
         </Card>

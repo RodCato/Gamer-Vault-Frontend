@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
-const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
+const GameEdit = ({ games, updateGame, currentUser, deleteGame, gameId }) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -18,18 +18,19 @@ const GameEdit = ({ games, updateGame, currentUser, deleteGame }) => {
   useEffect(() => {
     const game = games.find((game) => game.id === parseInt(id));
     if (game && game.user_id === currentUser?.id) {
-      setGameData(game);
+      setGameData({ ...game, user_id: currentUser?.id });
     }
-  }, [games, id, currentUser]);
+  }, [games, gameId, currentUser]);
 
   const handleChange = (e) => {
     setGameData({ ...gameData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    updateGame(gameData);
-    navigate("/games");
-  };
+const handleSubmit = () => {
+  updateGame({ ...gameData, id });
+  navigate("/games");
+};
+
 
   const handleDelete = () => {
     deleteGame(gameData.id);

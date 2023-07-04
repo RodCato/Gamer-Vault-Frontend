@@ -82,7 +82,7 @@ const WhacADev = ({ score, setScore, gameOver, setGameOver }) => {
     <div>
             {/* <div id="score">{gameOver ? "GAME OVER" : score}</div> */}
 
-      <div id="board">
+      <div id="board" data-testid="board">
         {[...Array(9)].map((_, index) => (
           <div
             className="tile"
