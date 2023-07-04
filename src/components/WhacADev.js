@@ -80,7 +80,7 @@ const WhacADev = ({ score, setScore, gameOver, setGameOver }) => {
 
   return (
     <div>
-            {/* <div id="score">{gameOver ? "GAME OVER" : score}</div> */}
+      {/* <div id="score">{gameOver ? "GAME OVER" : score}</div> */}
 
       <div id="board" data-testid="board">
         {[...Array(9)].map((_, index) => (
@@ -96,12 +96,13 @@ const WhacADev = ({ score, setScore, gameOver, setGameOver }) => {
               alignItems: "center",
               justifyContent: "center",
               position: "relative",
+              cursor: `url(${require("../assets/hammer.png")}), auto`,
             }}
           >
             {index.toString() === currDevTile && (
               <img
-                src={getRandomDevImage().url} // Access the URL property
-                className={`img ${getRandomDevImage().className}`} // Access the className property
+                src={getRandomDevImage().url}
+                className={`img ${getRandomDevImage().className}`}
                 alt="Dev"
                 style={{
                   width: "100px",
