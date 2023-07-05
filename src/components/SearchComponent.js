@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Card, CardBody, CardTitle, Button, Label, Input } from "reactstrap";
 import { useNavigate } from "react-router-dom";
-import microphone from "../assets/microphone.png"
+import microphone from "../assets/microphone.png";
 
 const SearchComponent = () => {
   const navigate = useNavigate();
@@ -77,18 +77,25 @@ const SearchComponent = () => {
         <div className="input">
           <Label for="name"></Label>
           <Input
+            id="search"
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Enter a game..."
             className="search-input"
             ref={searchInputRef}
+            required
           />
         </div>
-        <div style={{display:"flex", justifyContent:"center", gap:"1rem" }}>
-        <Button type="submit">Search</Button>
-          <img src={microphone} alt="Voice Search" onClick={handleVoiceSearch} style={{width:"10%", height:"10%", cursor:"pointer" }} />
-          </div>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
+          <Button type="submit">Search</Button>
+          <img
+            src={microphone}
+            alt="Voice Search"
+            onClick={handleVoiceSearch}
+            style={{ width: "10%", height: "10%", cursor: "pointer" }}
+          />
+        </div>
       </form>
       <div className="search-results">
         {searchResults.map((game) => (

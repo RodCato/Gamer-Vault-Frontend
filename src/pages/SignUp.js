@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, FormGroup, Input } from "reactstrap";
 
 const SignUp = ({ signup }) => {
   const formRef = useRef();
@@ -30,6 +30,7 @@ const SignUp = ({ signup }) => {
               name="email"
               id="exampleEmail"
               placeholder="Enter your email"
+              required
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -38,6 +39,7 @@ const SignUp = ({ signup }) => {
               name="password"
               id="examplePassword"
               placeholder="Choose a password"
+              required
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -46,6 +48,7 @@ const SignUp = ({ signup }) => {
               name="confirmPassword"
               id="exampleConfirmPassword"
               placeholder="Confirm password"
+              required
             />
           </FormGroup>
           <Button className="pixel-btn" type="submit">
