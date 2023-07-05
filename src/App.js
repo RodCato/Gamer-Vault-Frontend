@@ -21,7 +21,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [games, setGames] = useState([]);
 
-  const url = "https://gamervault.onrender.com/"; //https://gamervault.onrender.com/ for deployment or http://localhost:3000 for local dev
+  const url = "http://localhost:3000"; //https://gamervault.onrender.com/ for deployment or http://localhost:3000 for local dev
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");

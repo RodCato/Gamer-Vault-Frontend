@@ -9,7 +9,6 @@ import {
   CardSubtitle,
   CardText,
   CardImg,
-  Button,
 } from "reactstrap";
 
 const Jess = () => {

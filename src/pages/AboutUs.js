@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import lipixel from "../assets/lipixel.png";
 import igpixel from "../assets/igpixel.png";
 import folderpixel from "../assets/folderpixel.png";
 import twitterpixel from "../assets/twitterpixel.png";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const AboutUs = () => {

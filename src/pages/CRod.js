@@ -35,7 +35,7 @@ const CRod = () => {
         >
           <CardImg
             className="each-member-img"
-            alt=""
+            alt="Picture of C Rod"
             src={require("../assets/crodpng.png")}
             style={{
               borderRadius: "50px 0 0 50px",
@@ -59,7 +59,7 @@ const CRod = () => {
                 }}
               >
                 <a href="https://github.com/RodCato">
-                  <img src="https://readme-typing-svg.herokuapp.com/?lines=🪄%20Hi,%20I'm%20Catalino%20(aka%20C%20Rod)%20;🪄%20Full%20Stack%20Web%20Developer;🪄%20Multi-Potentialite%20Extraordinaire;🪄%20Thanks%20for%20stopping%20by🙌🏽!&font=Josefin%20Sans&center=true&width=650&height=90&weight=700&color=000&vCenter=true&size=35%42" />
+                  <img src="https://readme-typing-svg.herokuapp.com/?lines=🪄%20Hi,%20I'm%20Catalino%20(aka%20C%20Rod)%20;🪄%20Full%20Stack%20Web%20Developer;🪄%20Multi-Potentialite%20Extraordinaire;🪄%20Thanks%20for%20stopping%20by🙌🏽!&font=Josefin%20Sans&center=true&width=650&height=90&weight=700&color=000&vCenter=true&size=35%42" alt="Typewriting Text"/>
                 </a>
               </div>
             </CardTitle>

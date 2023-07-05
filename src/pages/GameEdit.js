@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Input, Button } from "reactstrap";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 const GameEdit = ({ games, updateGame, currentUser, deleteGame, gameId }) => {
@@ -69,6 +69,7 @@ const handleSubmit = () => {
               placeholder="Game Title"
               onChange={handleChange}
               value={gameData.title}
+              required
             />
           </FormGroup>
 
@@ -80,6 +81,7 @@ const handleSubmit = () => {
               placeholder="Image URL"
               onChange={handleChange}
               value={gameData.image}
+              required
             />
           </FormGroup>
 
@@ -91,6 +93,7 @@ const handleSubmit = () => {
               placeholder="Genre, Action, RPG, etc."
               onChange={handleChange}
               value={gameData.genre}
+              required
             />
           </FormGroup>
 
@@ -102,6 +105,7 @@ const handleSubmit = () => {
               placeholder="Platform, Playstation, Xbox, etc."
               onChange={handleChange}
               value={gameData.platform}
+              required
             />
           </FormGroup>
 
@@ -114,6 +118,7 @@ const handleSubmit = () => {
               onChange={handleChange}
               value={gameData.notes}
               style={{ height: "5rem", width: "18rem", fontSize: "18px" }}
+              required
             />
           </FormGroup>
           <FormGroup>

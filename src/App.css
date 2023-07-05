@@ -417,7 +417,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   height: 100vh;
-  /* margin-top: 7rem; */
+ margin-top: 3rem;
 }
 
 .about-name {
@@ -428,8 +428,8 @@ body {
 .about-bio {
   border-radius: 10px;
   text-align: center;
-  padding: 3rem 1rem 2rem 1rem;
-  height: 17vh;
+  padding: 3rem 1rem 0 1rem;
+  height: 16vh;
   font-size: 1.3rem;
   font-style: italic;
 }

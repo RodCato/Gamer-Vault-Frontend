@@ -15,7 +15,7 @@ const GameNew = ({ createGame, currentUser }) => {
     user_id: currentUser?.id || "",
   });
 
-  // Use of useEffect to prefill the form fields when location state is available
+ 
   useEffect(() => {
     if (location.state && location.state.prefill) {
       const { title, image, genre, platform } = location.state.prefill;
@@ -67,7 +67,7 @@ const GameNew = ({ createGame, currentUser }) => {
       )}
 
       <form className="new-game-form" onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-group" style={{ marginBottom: "50rem" }}>
           <FormGroup>
             <Input
               id="game-title"
@@ -76,6 +76,7 @@ const GameNew = ({ createGame, currentUser }) => {
               placeholder="Game Title"
               onChange={handleChange}
               value={newGame.title}
+              required
             />
           </FormGroup>
 
@@ -87,6 +88,7 @@ const GameNew = ({ createGame, currentUser }) => {
               placeholder="Image URL"
               onChange={handleChange}
               value={newGame.image}
+              required
             />
           </FormGroup>
 
@@ -98,6 +100,7 @@ const GameNew = ({ createGame, currentUser }) => {
               placeholder="genre, Action, RPG, etc."
               onChange={handleChange}
               value={newGame.genre}
+              required
             />
           </FormGroup>
 
@@ -109,6 +112,7 @@ const GameNew = ({ createGame, currentUser }) => {
               placeholder="Platform, Playstation, Xbox, etc."
               onChange={handleChange}
               value={newGame.platform}
+              required
             />
           </FormGroup>
 
@@ -121,6 +125,7 @@ const GameNew = ({ createGame, currentUser }) => {
               onChange={handleChange}
               value={newGame.notes}
               style={{ height: "5rem", width: "18rem", fontSize: "18px" }}
+              required
             />
           </FormGroup>
           <FormGroup>
