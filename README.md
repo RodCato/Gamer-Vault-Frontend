@@ -6,7 +6,7 @@
 
 This application allows users to create an account and manage their list of video games. Users can browse available games, search and add games to their list, update game attributes, and delete games from their list.  It also pulls data from the [RAWG](https://rawg.io/) API.
 
-Live Link: [https://gamer-vault.onrender.com/](https://crod.co/gvs)
+Live Link: https://crod.co/gvs
 
 <br>
 <br>
